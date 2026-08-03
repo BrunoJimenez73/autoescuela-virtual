@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f8f7f4] text-[#1a1a2e] antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .prose-estudio {
+    --prose-body: #374151;
+    --prose-heading: #111827;
+    --prose-bold: #111827;
+    --prose-code: #7c3aed;
+    --prose-hr: #e5e7eb;
+    --prose-links: #2563eb;
+    --prose-quote-bar: #e5e7eb;
+    --prose-table-border: #d1d5db;
+    --prose-table-bg-alt: #f9fafb;
+  }
+
+  .prose-estudio h2 {
+    @apply text-2xl font-bold text-[#111827] mt-10 mb-4 pb-3 border-b border-[#e5e7eb];
+    scroll-margin-top: 5rem;
+  }
+
+  .prose-estudio h3 {
+    @apply text-xl font-semibold text-[#111827] mt-8 mb-3;
+    scroll-margin-top: 5rem;
+  }
+
+  .prose-estudio h4 {
+    @apply text-lg font-semibold text-[#1f2937] mt-6 mb-2;
+  }
+
+  .prose-estudio p {
+    @apply text-base leading-[1.8] text-[#374151] mb-5;
+  }
+
+  .prose-estudio ul {
+    @apply mb-5 pl-0;
+  }
+
+  .prose-estudio ul li {
+    @apply relative pl-6 mb-2 text-[#374151] leading-relaxed;
+  }
+
+  .prose-estudio ul li::before {
+    content: '';
+    @apply absolute left-1.5 top-[0.7em] w-1.5 h-1.5 rounded-full bg-[#3b82f6] opacity-60;
+  }
+
+  .prose-estudio ol {
+    @apply mb-5 pl-6 list-decimal;
+  }
+
+  .prose-estudio ol li {
+    @apply mb-2 text-[#374151] leading-relaxed pl-2;
+  }
+
+  .prose-estudio strong {
+    @apply font-semibold text-[#111827];
+  }
+
+  .prose-estudio a {
+    @apply text-[#2563eb] underline decoration-[#2563eb]/30 underline-offset-2 hover:decoration-[#2563eb] transition-all;
+  }
+
+  .prose-estudio blockquote {
+    @apply border-l-4 border-[#e5e7eb] pl-4 italic text-[#6b7280] my-6;
+  }
+
+  .prose-estudio code {
+    @apply text-sm px-1.5 py-0.5 bg-[#f3f4f6] text-[#7c3aed] rounded;
+  }
+
+  .prose-estudio pre {
+    @apply bg-[#1f2937] text-[#f3f4f6] rounded-xl p-5 overflow-x-auto my-6 text-sm leading-relaxed;
+  }
+
+  .prose-estudio hr {
+    @apply my-8 border-[#e5e7eb];
+  }
+
+  .prose-estudio img {
+    @apply rounded-xl my-6 shadow-sm;
+  }
+
+  .prose-estudio table {
+    @apply w-full border-collapse my-6 text-sm;
+  }
+
+  .prose-estudio table th {
+    @apply border border-[#d1d5db] p-3 bg-[#f9fafb] font-semibold text-left text-[#111827];
+  }
+
+  .prose-estudio table td {
+    @apply border border-[#d1d5db] p-3 text-[#374151];
+  }
+
+  .prose-estudio table tr:nth-child(even) td {
+    @apply bg-[#f9fafb];
+  }
+
+  .prose-estudio table tr:hover td {
+    @apply bg-[#eff6ff] transition-colors;
+  }
+
+  .prose-estudio h2 id\=, .prose-estudio h3 id\= {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 3px;
+  }
+}

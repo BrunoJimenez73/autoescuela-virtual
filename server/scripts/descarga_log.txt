@@ -1,0 +1,146 @@
+1/164 procesados (1 ok)11/164 procesados (10 ok)
+429 x1 en #12, pausa 10s
+
+429 x2 en #13, pausa 20s
+
+429 x1 en #15, pausa 10s
+
+429 x2 en #16, pausa 20s
+
+429 x1 en #19, pausa 10s
+
+429 x2 en #20, pausa 20s
+21/164 procesados (14 ok)
+429 x1 en #22, pausa 10s
+
+429 x2 en #23, pausa 20s
+
+429 x1 en #25, pausa 10s
+
+429 x2 en #26, pausa 20s
+
+429 x3 en #27, pausa 30s
+
+429 x4 en #28, pausa 40s
+
+429 x5 en #29, pausa 50s
+
+429 x6 en #30, pausa 60s
+31/164 procesados (16 ok)
+429 x1 en #32, pausa 10s
+
+429 x2 en #33, pausa 20s
+
+429 x3 en #34, pausa 30s
+
+429 x4 en #35, pausa 40s
+
+429 x5 en #36, pausa 50s
+
+429 x1 en #38, pausa 10s
+
+429 x1 en #40, pausa 10s
+
+429 x2 en #41, pausa 20s
+41/164 procesados (17 ok)
+429 x3 en #42, pausa 30s
+
+429 x4 en #43, pausa 40s
+
+429 x5 en #44, pausa 50s
+
+429 x6 en #45, pausa 60s
+
+429 x7 en #46, pausa 70s
+
+429 x8 en #47, pausa 80s
+
+429 x9 en #48, pausa 90s
+
+429 x1 en #50, pausa 10s
+
+429 x2 en #51, pausa 20s
+51/164 procesados (18 ok)
+429 x3 en #52, pausa 30s
+
+429 x4 en #53, pausa 40s
+
+429 x5 en #54, pausa 50s
+
+429 x6 en #55, pausa 60s
+
+429 x7 en #56, pausa 70s
+
+429 x8 en #57, pausa 80s
+
+429 x9 en #58, pausa 90s
+
+429 x10 en #59, pausa 100s
+
+429 x11 en #60, pausa 110s
+61/164 procesados (19 ok)
+429 x1 en #62, pausa 10s
+
+429 x2 en #63, pausa 20s
+
+429 x3 en #64, pausa 30s
+
+429 x4 en #65, pausa 40s
+
+429 x5 en #66, pausa 50s
+
+429 x6 en #67, pausa 60s
+
+429 x7 en #68, pausa 70s
+
+429 x8 en #69, pausa 80s
+
+429 x9 en #70, pausa 90s
+
+429 x10 en #71, pausa 100s
+71/164 procesados (19 ok)
+429 x11 en #72, pausa 110s
+
+429 x1 en #74, pausa 10s
+
+429 x2 en #75, pausa 20s
+
+429 x3 en #76, pausa 30s
+
+429 x4 en #77, pausa 40s
+
+429 x5 en #78, pausa 50s
+
+429 x6 en #79, pausa 60s
+
+429 x7 en #80, pausa 70s
+
+429 x8 en #81, pausa 80s
+81/164 procesados (20 ok)
+429 x9 en #82, pausa 90s
+
+429 x10 en #83, pausa 100s
+
+429 x11 en #84, pausa 110s
+
+429 x1 en #86, pausa 10s
+
+429 x2 en #87, pausa 20s
+
+429 x3 en #88, pausa 30s
+
+429 x4 en #89, pausa 40s
+
+429 x5 en #90, pausa 50s
+
+429 x6 en #91, pausa 60s
+91/164 procesados (21 ok)
+429 x7 en #92, pausa 70s
+
+429 x8 en #93, pausa 80s
+
+429 x9 en #94, pausa 90s
+
+429 x10 en #95, pausa 100s
+
+429 x11 en #96, pausa 110s
