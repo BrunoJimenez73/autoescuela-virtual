@@ -10,6 +10,7 @@ import { seedPreguntasExtra } from './db/seed-preguntas-extra';
 import { seedPreguntasReales } from './db/seed-preguntas-reales';
 import { seedPreguntasNuevas } from './db/seed-preguntas-nuevas';
 import { seedPreguntasFinal } from './db/seed-preguntas-final';
+import { seedPreguntasOficiales } from './db/seed-preguntas-oficiales';
 import { seedManual } from './db/seed-manual';
 import authRoutes from './routes/auth';
 import preguntasRoutes from './routes/preguntas';
@@ -65,6 +66,7 @@ seedPreguntasExtra();
 seedPreguntasReales();
 seedPreguntasNuevas();
 seedPreguntasFinal();
+seedPreguntasOficiales();
 seedManual();
 
 // Rutas

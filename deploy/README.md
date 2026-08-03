@@ -17,8 +17,9 @@ Internet ── HTTPS:443 ──> Nginx (Let's Encrypt) ── proxy ──> Nod
 
 ## 0. Antes (en tu PC)
 
-1. Sube este repo a GitHub (privado) y anota `REPO_URL`.
-2. Genera la clave SSH que usarás para conectarte a la VM.
+1. Sube este repo a GitHub (privado) y anota `REPO_URL` (opcional si despliegas por `scp`).
+2. Genera la clave SSH que usarás para conectarte a la VM:
+   `ssh-keygen -t ed25519 -f ~/.ssh/autoescuela_oracle`
 
 ## 1. Crear la VM (web de Oracle)
 
@@ -26,38 +27,52 @@ Internet ── HTTPS:443 ──> Nginx (Let's Encrypt) ── proxy ──> Nod
 2. Compute → Instances → *Create instance*:
    - Shape: **`VM.Standard.A1.Flex`** (ARM). OCPUs: 2, Memoria: 12 GB.
    - Imagen: **Canonical Ubuntu 24.04**.
-   - SSH keys: subi tu clave pública y **guardá la privada (.key)**.
+   - SSH keys: subi tu clave pública (`~/.ssh/autoescuela_oracle.pub`).
    - Si sale "out of host capacity", probá otra *Availability Domain* o más tarde.
 3. En **Networking / Security List** de la VCN, agregá reglas de ingreso:
-   - `22/tcp` (SSH), `80/tcp`, `443/tcp`.
+   - `22/tcp` (SSH), `80/tcp` (HTTP) y `443/tcp` solo si usarás dominio+HTTPS.
 
-## 2. Instalar y desplegar (en la VM)
+## 2. Desplegar (por DNS inmediato, sin dominio)
+
+La app se sirve sola en el puerto `3000` dentro de la VM. Un método rápido es
+subir el código con `scp` (evita gestionar tokens de GitHub en la VM):
 
 ```bash
-ssh -i clave.key ubuntu@<IP_PUBLICA>
+# 1. Empaquetar el proyecto (sin node_modules/ni dist/ni datos ni .env)
+tar -czf autoescuela.tar.gz \
+  --exclude=node_modules --exclude=dist --exclude=.git \
+  --exclude=.env --exclude='*.log' --exclude=data \
+  ./
 
+# 2. Subirlo a la VM
+scp -i ~/.ssh/autoescuela_oracle autoescuela.tar.gz ubuntu@IP:/tmp/
+scp -i ~/.ssh/autoescuela_oracle deploy/setup-ubuntu.sh ubuntu@IP:/tmp/
+
+# 3. En la VM
+ssh -i ~/.ssh/autoescuela_oracle ubuntu@IP
+sudo mkdir -p /opt/autoescuela-virtual
+sudo tar -xzf /tmp/autoescuela.tar.gz -C /opt/autoescuela-virtual
+sudo bash /tmp/setup-ubuntu.sh SKIP_CLONE=1 IP_PUBLICA=<IP_PUBLICA>
+```
+
+## 2b. Desplegar (con dominio y HTTPS)
+
+```bash
 sudo REPO_URL=https://github.com/TU_USUARIO/autoescuela-virtual.git \
      DOMAIN=autoescuela.TUDOMINIO.com \
      EMAIL=tu@email.com \
      bash <(curl -Ls https://raw.githubusercontent.com/TU_USUARIO/autoescuela-virtual/BRANCH/deploy/setup-ubuntu.sh)
 ```
 
-O si preferís clonar a mano: cloná, después `sudo bash deploy/setup-ubuntu.sh`.
-
-El script hace todo: instala Node 22 + nginx + certbot, compila cliente+servidor,
-crea `server/.env`, arma el servicio `autoescuela` con systemd, configura nginx
-con SSL Let's Encrypt y programa el cron de backups.
-
-## 3. DNS
-
-Crea un registro (p.ej. `A`) apuntando `autoescuela.TUDOMINIO.com` a la IP
-pública de la VM **antes de** ejecutar el script (certbot lo necesita).
+> Antes de ejecutarlo, el registro DNS debe apuntar a la IP de la VM.
 
 ## 4. Comprobar
 
-- `https://DOMINIO/health` → `{"datos":{"estado":"ok","baseDeDatos":true}}`
-- `https://DOMINIO/api/senales` → JSON con la lista de señales
-- `https://DOMINIO/` → la app (registrar un usuario y hacer un examen)
+Sustituí `BASE_URL` por `http://IP_PUBLICA` o `https://DOMINIO` según el modo:
+
+- `BASE_URL/health` → `{"datos":{"estado":"ok","baseDeDatos":true}}`
+- `BASE_URL/api/senales` → JSON con la lista de señales
+- `BASE_URL/` → la app (registrar un usuario y hacer un examen)
 
 ## Operaciones habituales
 
