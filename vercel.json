@@ -1,5 +1,11 @@
 {
-  "buildCommand": "cd client && npm install && npm run build",
+  "buildCommand": "cp -r server/public/senales client/public/senales 2>/dev/null; cd client && npm install && npm run build",
   "outputDirectory": "client/dist",
-  "installCommand": "npm install --prefix client"
+  "installCommand": "npm install --prefix client",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://autoescuela-backend-production-4450.up.railway.app/api/:path*"
+    }
+  ]
 }
