@@ -27,3 +27,5 @@ Thumbs.db
 # Herramientas locales (playwright, vite cache)
 .playwright-mcp/
 .vite/
+
+.vercel
