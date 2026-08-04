@@ -1,0 +1,11 @@
+{
+  "name": "autoescuela-backend",
+  "scripts": {
+    "build": "cd server && npm install && npx tsc",
+    "start": "cd server && node dist/index.js"
+  },
+  "railway": {
+    "build": "cd server && npm install && npx tsc",
+    "start": "node server/dist/index.js"
+  }
+}
