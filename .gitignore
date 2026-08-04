@@ -13,6 +13,9 @@ server/data/
 server/dist/
 client/dist/
 
+# Static site generado (artefacto de build)
+static-site/
+
 # Logs
 *.log
 npm-debug.log*
